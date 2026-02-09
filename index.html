@@ -35,6 +35,24 @@ img[class="responsive"] {
 </head>
 
 <body style="margin:0;padding:0;background-color:#ffffff;">
+	<script>
+  function getQueryParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    let firstName = getQueryParam("fname");
+
+    if (!firstName || firstName === "null" || firstName === "") {
+      firstName = "there";
+    }
+
+    document.querySelectorAll(".first-name").forEach(el => {
+      el.textContent = firstName;
+    });
+  });
+</script>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
   <tr>
     <td align="center" style="padding:0;margin:0;">
@@ -92,7 +110,7 @@ img[class="responsive"] {
 		  <p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;margin:1em 0 0.5em 0;mso-line-height-rule:exactly;"><strong>Date:</strong> The week of February 10, 2026</p>
 <p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;margin:0.5em 0 1em 0;mso-line-height-rule:exactly;"><strong>Time:</strong> 9:00 AM until 5:00 PM (China Standard Time)</p>
 		  
-<p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;line-height:1.4em;mso-line-height-rule:exactly;margin:1.5em 0 1em 0;">Dear [______],</p>
+<p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;line-height:1.4em;mso-line-height-rule:exactly;margin:1.5em 0 1em 0;">Dear <span class="first-name"></span>,</p>
 		  <p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;line-height:1.4em;mso-line-height-rule:exactly;margin:1em 0;">Are you looking for an Executive MBA Program that will open doors, connect you with leaders, and ignite success in your career?
 </p>
 		   	    <p style="font-size:16px;font-family:'Helvetica', sans-serif;mso-fareast-font-family:'Times New Roman';color:#000000;line-height:1.4em;mso-line-height-rule:exactly;margin:1em 0;">
@@ -278,3 +296,4 @@ Our Hong Kong campus brings together accomplished executives from across the Asi
 
 </body>
 </html>
+
